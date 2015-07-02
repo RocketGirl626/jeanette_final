@@ -6,4 +6,31 @@
 <p><%= link_to "Delete", category_path(@category),
                            :data => {:confirm => "You sure?",
                                      :method => "delete"} %></p>
+
+<%if @category.projects.any? %>
+ <h3>Projects in this section:</h3>
+
+
+
+   <ul>
+    <% @category.projects.each do |project| %>
+       <li><%= project.name %>
+
+       <button class="edit-btn"><%= link_to "Edit Project", edit_category_project_path(@category, project) %></button>
+         <button><%= link_to "Delete Project", category_project_path(@category, project),
+                   :data => {:confirm => "Confirm?",
+                   :method => "delete"} %></button></li>
+    <% end %>
+   </ul>
+<% else %>
+
+ <h3>There are no projects in this category yet.</h3>
+
+<% end %>
+
+
+<br>
+
+
+<p><%= link_to 'Add a New Project', new_category_project_path(@category) %></p>
 <p><%= link_to "Return to skill categories", categories_path %></p>
