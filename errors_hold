@@ -1,0 +1,14 @@
+GOES AT TOP OF CATEGORY/NEW.HTML.ERB:
+
+
+
+
+GOES IN _ERRORS:
+<% if object.errors.any? %>
+  <h3>These errors need fixed:</h3>
+  <ul>
+    <% object.errors.full_messages.each do |message| %>
+      <li class="alert"><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
