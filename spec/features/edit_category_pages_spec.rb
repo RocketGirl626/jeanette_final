@@ -8,7 +8,7 @@ describe "the edit category process" do
     fill_in 'Name', :with => 'Ruby'
     click_on 'Create Category'
     click_on 'Edit Category'
-    fill_in 'Name', :with => 'Rucy on Rails'
+    fill_in 'Name', :with => 'Ruby on Rails'
     click_on 'Update Post'
     expect(page).to have_content 'Ruby on Rails'
   end
