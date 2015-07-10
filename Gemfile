@@ -1,21 +1,20 @@
 source 'https://rubygems.org'
 
-
 gem 'rails'
 gem 'pg'
-gem 'sass-rails'
-gem 'bootstrap-sass'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'sass-rails', '>= 3.2'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'pry'
-
-
+gem 'devise'
+gem "paperclip", "~> 4.3"
+gem 'rails_12factor'
 
 group :development do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   gem 'spring'
   gem 'quiet_assets'
 end
@@ -23,9 +22,15 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'launchy'
+  gem 'pry'
 end
 
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'simplecov', require: false
 end
+
+
+ruby "2.2.0"
