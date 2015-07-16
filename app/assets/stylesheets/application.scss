@@ -2,7 +2,7 @@
 @import "bootstrap-sprockets";
 
 // Import cosmo variables
-// @import "bootswatch/superhero/variables";
+@import "bootswatch/superhero/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -11,7 +11,10 @@
 // body { padding-top: 60px; }
 
 // And finally bootswatch style itself
-// @import "bootswatch/superhero/bootswatch";
+@import "bootswatch/superhero/bootswatch";
+
+// Whatever application styles you have go last
+// @import "base";
 
 #notice {
   color: red;
