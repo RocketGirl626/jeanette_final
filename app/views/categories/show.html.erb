@@ -2,10 +2,12 @@
 
 <h3><%= @category.name %></h3>
 
-<p><%= link_to "Edit Category", edit_category_path(@category) %></li>
-<p><%= link_to "Delete", category_path(@category),
-                           :data => {:confirm => "You sure?",
-                                     :method => "delete"} %></p>
+<% if current_user && current_user.admin? %>
+  <p><%= link_to "Edit Category", edit_category_path(@category) %></li>
+  <p><%= link_to "Delete", category_path(@category),
+                             :data => {:confirm => "You sure?",
+                                       :method => "delete"} %></p>
+<% end %>
 
 <%if @category.projects.any? %>
  <h3>Projects in this section:</h3>
@@ -14,12 +16,13 @@
 
    <ul>
     <% @category.projects.each do |project| %>
-       <li><%= project.name %>
-
-       <button class="edit-btn"><%= link_to "Edit Project", edit_category_project_path(@category, project) %></button>
-         <button><%= link_to "Delete Project", category_project_path(@category, project),
-                   :data => {:confirm => "Confirm?",
-                   :method => "delete"} %></button></li>
+      <li><%= project.name %>
+      <% if current_user && current_user.admin? %>
+        <button class="edit-btn"><%= link_to "Edit Project", edit_category_project_path(@category, project) %></button>
+        <button><%= link_to "Delete Project", category_project_path(@category, project),
+                     :data => {:confirm => "Confirm?",
+                     :method => "delete"} %></button></li>
+      <% end %>
     <% end %>
    </ul>
 <% else %>

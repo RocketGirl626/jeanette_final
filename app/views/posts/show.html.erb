@@ -1,18 +1,36 @@
-<h1><%= @post.name %></h1>
+<h3><%= @post.name %></h3>
+<h5><%= @post.text %></h5>
 
-<h3><%= @post.text %></h3>
+<% if current_user && current_user.admin? %>
+  <p><%= link_to "Edit Post", edit_post_path(@post) %></li>
+  <p><%= link_to "Delete", post_path(@post),
+                             :data => {:confirm => "You sure?",
+                                       :method => "delete"} %></p>
+<% end %>
+
+<%if @post.comments.any? %>
+ <h3>Comments:</h3>
 
 
-    <%= link_to "Edit Post", edit_post_path(@post) %>
-    <%= link_to "Delete Post", post_path(@post),
-                                    :data => {:confirm => "Are you sure?",
-                                              :method => 'delete'}%>
 
-  <%= link_to "Add A Comment", new_post_comment_path(@post, @comment) %>
-
-  <ul>
+   <ul>
     <% @post.comments.each do |comment| %>
-      <li><%= comment.text %> -- <small><%= comment.user.email %></small></li>
-      <hr>
+       <li><%= comment.text %>
+
+       <button class="edit-btn"><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></button>
+         <button><%= link_to "Delete ", post_comment_path(@post, comment),
+                   :data => {:confirm => "Confirm?",
+                   :method => "delete"} %></button></li>
     <% end %>
-  </ul>
+   </ul>
+<% else %>
+
+ <h3>There are no comments for this post yet!</h3>
+
+<% end %>
+
+
+<br>
+
+<p><%= link_to 'Add a New Comment', new_post_comment_path(@post) %></p>
+<p><%= link_to "Return to skill categories", categories_path %></p>

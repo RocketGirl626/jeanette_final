@@ -23,26 +23,26 @@ class PostsController < ApplicationController
      @post = Post.find(params[:id])
    end
 
-  # def edit
-  #   @property = Property.find(params[:id])
-  # end
-  #
-  # def update
-  #    @property = Property.find(params[:id])
-  #    if @property.update(property_params)
-  #      flash[:notice] = "Your property has been updated."
-  #      redirect_to property_path(@property)
-  #    else
-  #      render :edit
-  #    end
-  #  end
-  #
-  #  def destroy
-  #    @property = Property.find(params[:id])
-  #    @property.destroy
-  #    flash[:notice] = "Your property has been deleted."
-  #    redirect_to properties_path()
-  #  end
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+     @post = Post.find(params[:id])
+     if @post.update(post_params)
+       flash[:notice] = "Your post has been updated."
+       redirect_to post_path(@post)
+     else
+       render :edit
+     end
+   end
+
+   def destroy
+     @post = Post.find(params[:id])
+     @post.destroy
+     flash[:notice] = "Your post has been deleted."
+     redirect_to posts_path()
+   end
 
 
 private
