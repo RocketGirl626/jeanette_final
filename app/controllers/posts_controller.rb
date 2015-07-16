@@ -46,8 +46,8 @@ class PostsController < ApplicationController
 
 
 private
-  def property_params
-    params.require(:property).permit(:name, :description)
+  def post_params
+    params.require(:post).permit(:name, :text)
   end
 
 end
