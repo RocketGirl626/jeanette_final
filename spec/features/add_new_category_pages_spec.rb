@@ -13,6 +13,6 @@ describe "the add a Category process" do
     visit new_category_path
     click_on 'Create Category'
     expect(page).to have_content 'errors'
-   end
+  r end
 
 end
