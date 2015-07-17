@@ -1,4 +1,4 @@
-<h1>Skill Categories</h1>
+<h1>Skills</h1>
 
 <ul>
   <% @categories.each do |category| %>
@@ -6,4 +6,6 @@
   <% end %>
 </ul>
 
-<%= link_to 'Add a New Skill Category', new_category_path %>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Add a New Skill Category', new_category_path %>
+<% end %>

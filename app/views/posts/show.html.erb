@@ -1,3 +1,5 @@
+<h1>Blog Post</h1>
+
 <h3><%= @post.name %></h3>
 <h5><%= @post.text %></h5>
 
@@ -16,18 +18,19 @@
    <ul>
     <% @post.comments.each do |comment| %>
        <li><%= comment.text %>
-
-       <button class="edit-btn"><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></button>
-         <button><%= link_to "Delete ", post_comment_path(@post, comment),
-                   :data => {:confirm => "Confirm?",
-                   :method => "delete"} %></button></li>
+       <% if current_user && current_user.admin? || current_user && current_user.owner? %>
+         <button class="edit-btn"><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></button>
+           <button><%= link_to "Delete ", post_comment_path(@post, comment),
+                     :data => {:confirm => "Confirm?",
+                     :method => "delete"} %></button></li>
+        <% end %>
     <% end %>
    </ul>
-<% else %>
+    <% else %>
 
- <h3>There are no comments for this post yet!</h3>
+     <h3>There are no comments for this post yet!</h3>
 
-<% end %>
+    <% end %>
 
 
 <br>

@@ -34,6 +34,8 @@
 
 <br>
 
+<% if current_user && current_user.admin? %>
+  <p><%= link_to 'Add a New Project', new_category_project_path(@category) %></p>
+<% end %>
 
-<p><%= link_to 'Add a New Project', new_category_project_path(@category) %></p>
 <p><%= link_to "Return to skill categories", categories_path %></p>

@@ -6,4 +6,6 @@
   <% end %>
 </ul>
 
-<%= link_to 'Add a New Post', new_post_path %>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Add a New Post', new_post_path %>
+<% end %>
