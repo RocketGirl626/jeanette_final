@@ -16,12 +16,18 @@
 
    <ul>
     <% @category.projects.each do |project| %>
-      <li><%= project.name %>
+      <li><%= link_to project.name, project.url %></a>
+        <ul>
+          <li class="inner-list-item">Description:  <%= project.description %>
+          <li class="inner-list-item">Github: <%= link_to project.github, project.github %></li>
+        </ul>
+        <br />
       <% if current_user && current_user.admin? %>
         <button class="edit-btn"><%= link_to "Edit Project", edit_category_project_path(@category, project) %></button>
         <button><%= link_to "Delete Project", category_project_path(@category, project),
                      :data => {:confirm => "Confirm?",
                      :method => "delete"} %></button></li>
+        <br />
       <% end %>
     <% end %>
    </ul>

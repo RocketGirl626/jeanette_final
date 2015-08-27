@@ -1,0 +1,27 @@
+<h1>Jeanette's References</h1>
+
+<ul>
+  <% @references.each do |reference| %>
+    <li><%= reference.name %></li>
+    <ul>
+      <li class="inner-list-item"><%= reference.title %></li>
+      <li class="inner-list-item"><%= reference.company %></li>
+      <li class="inner-list-item"><%= reference.email %></li>
+    </ul>
+    <br />
+
+    <% if current_user && current_user.admin? %>
+      <li>
+        <button><%= link_to "Delete Reference", reference_path(@reference),
+                     :data => {:confirm => "Confirm?",
+                     :method => "delete"} %></button>
+        <br />
+      </li>
+    <% end %>
+
+  <% end %>
+</ul>
+
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Add a New Reference', new_reference_path %>
+<% end %>
