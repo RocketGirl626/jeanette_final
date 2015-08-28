@@ -1,27 +1,39 @@
 <h1>Jeanette's References</h1>
 
 <ul>
-  <% @references.each do |reference| %>
-    <li><%= reference.name %></li>
+  <li>Grace Stuart</li>
     <ul>
-      <li class="inner-list-item"><%= reference.title %></li>
-      <li class="inner-list-item"><%= reference.company %></li>
-      <li class="inner-list-item"><%= reference.email %></li>
+      <li class="inner-list-item">Job Title:&nbsp;&nbsp;&nbsp;  Manager, DevOps</li>
+      <li class="inner-list-item">Company:&nbsp;&nbsp;&nbsp; Thetus</li>
+      <li class="inner-list-item">Email:&nbsp;&nbsp;&nbsp; <a href="mailto:gstuart@thetus.com?Subject=Reference%20For%Jeanette%20Fairless" target="_top">gstuart@thetus.com</a></li>
     </ul>
     <br />
-
-    <% if current_user && current_user.admin? %>
-      <li>
-        <button><%= link_to "Delete Reference", reference_path(@reference),
-                     :data => {:confirm => "Confirm?",
-                     :method => "delete"} %></button>
-        <br />
-      </li>
-    <% end %>
-
-  <% end %>
+  <li>Ben Kulp</li>
+    <ul>
+      <li class="inner-list-item">Job Title:&nbsp;&nbsp;&nbsp;  Team Lead, DevOps</li>
+      <li class="inner-list-item">Company:&nbsp;&nbsp;&nbsp; Thetus</li>
+      <li class="inner-list-item">Email:&nbsp;&nbsp;&nbsp; <a href="mailto:benkul.com?Subject=Reference%20For%Jeanette%20Fairless" target="_top">benkul@gmail.com</a></li>
+    </ul>
+    <br />
+  <li>Kavari Ellingson</li>
+    <ul>
+      <li class="inner-list-item">Job Title:&nbsp;&nbsp;&nbsp;  DevOps Engineer</li>
+      <li class="inner-list-item">Company:&nbsp;&nbsp;&nbsp; Thetus</li>
+      <li class="inner-list-item">Email:&nbsp;&nbsp;&nbsp; <a href="mailto:kellingson.com?Subject=Reference%20For%Jeanette%20Fairless" target="_top">kellingson@thetus.com</a></li>
+    </ul>
+  <br />
+  <li>Michael Irey</li>
+    <ul>
+      <li class="inner-list-item">Job Title:&nbsp;&nbsp;&nbsp;  Senior Ruby Engineer</li>
+      <li class="inner-list-item">Company:&nbsp;&nbsp;&nbsp; Renew Financial</li>
+      <li class="inner-list-item">Email:&nbsp;&nbsp;&nbsp; <a href="mailto:kellingson.com?Subject=Reference%20For%Jeanette%20Fairless" target="_top">mirey@renewfinancial.com</a></li>
+    </ul>
+    <br />
+  <li>Debbie Cravey</li>
+    <ul>
+      <li class="inner-list-item">Job Title:&nbsp;&nbsp;&nbsp;  Ruby, JavaScript, Rails Instructor</li>
+      <li class="inner-list-item">Company:&nbsp;&nbsp;&nbsp; Epicodus</li>
+      <li class="inner-list-item">Email:&nbsp;&nbsp;&nbsp; <a href="mailto:kellingson.com?Subject=Reference%20For%Jeanette%20Fairless" target="_top">dcravey@epicodus.com</a></li>
+    </ul>
+    <br />
 </ul>
-
-<% if current_user && current_user.admin? %>
-  <%= link_to 'Add a New Reference', new_reference_path %>
-<% end %>
